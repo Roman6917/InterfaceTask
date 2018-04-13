@@ -1,45 +1,27 @@
 ﻿using System;
 using System.IO;
 
-// ReSharper disable NonReadonlyMemberInGetHashCode
 
 namespace ArithmeticOperation
 {
-	public class Complex : INumber<Complex>
+	public class ComplexNumber : INumber<ComplexNumber>
 	{
+		public ComplexNumber ZERO => new ComplexNumber();
+		public ComplexNumber ONE => new ComplexNumber(1);
+
 		private double RealRart { get; set; }
 		private double ImagPart { get; set; }
 
-		public Complex(double real, double imag = 0)
+		public ComplexNumber(double real, double imag = 0)
 		{
 			RealRart = real;
 			ImagPart = imag;
 		}
 
-		public Complex()
+		public ComplexNumber()
 		{
 			RealRart = 0;
 			ImagPart = 0;
-		}
-
-		public double GetReal()
-		{
-			return RealRart;
-		}
-
-		public void GetReal(double real)
-		{
-			this.RealRart = real;
-		}
-
-		public double GetImag()
-		{
-			return ImagPart;
-		}
-
-		public void GetImag(double imag)
-		{
-			this.ImagPart = imag;
 		}
 
 		public void SetValue(double real, double imag)
@@ -73,17 +55,22 @@ namespace ArithmeticOperation
 			return Math.Atan2(ImagPart, RealRart);
 		}
 
-		public Complex Add(Complex another)
+		public ComplexNumber getReal(double real)
 		{
-			return new Complex(RealRart + another.RealRart, ImagPart + another.ImagPart);
+			return new ComplexNumber(real);
 		}
 
-		public Complex Subtract(Complex another)
+		public ComplexNumber Add(ComplexNumber another)
 		{
-			return new Complex(RealRart - another.RealRart, ImagPart - another.ImagPart);
+			return new ComplexNumber(RealRart + another.RealRart, ImagPart + another.ImagPart);
 		}
 
-		public Complex Reciprocal()
+		public ComplexNumber Subtract(ComplexNumber another)
+		{
+			return new ComplexNumber(RealRart - another.RealRart, ImagPart - another.ImagPart);
+		}
+
+		public ComplexNumber Reciprocal()
 		{
 			var scale = RealRart * RealRart + ImagPart * ImagPart;
 			RealRart /= scale;
@@ -91,28 +78,28 @@ namespace ArithmeticOperation
 			return this;
 		}
 
-		public Complex Divide(Complex another)
+		public ComplexNumber Divide(ComplexNumber another)
 		{
 			return Multiply(another.Reciprocal());
 		}
 
-		public Complex Conjugate()
+		public ComplexNumber Conjugate()
 		{
 			this.RealRart = RealRart;
 			this.ImagPart = ImagPart * (-1);
 			return this;
 		}
 
-		public Complex Multiply(Complex other)
+		public ComplexNumber Multiply(ComplexNumber other)
 		{
 			var real2 = RealRart * other.RealRart - ImagPart * other.ImagPart;
 			var imag2 = RealRart * other.ImagPart + ImagPart * other.RealRart;
-			return new Complex(real2, imag2);
+			return new ComplexNumber(real2, imag2);
 		}
 
 		public object Clone()
 		{
-			return new Complex(RealRart, ImagPart);
+			return new ComplexNumber(RealRart, ImagPart);
 		}
 
 		public void Write(TextWriter Out)
@@ -120,14 +107,14 @@ namespace ArithmeticOperation
 			Out.WriteLine(ToString());
 		}
 
-		public Complex Read(TextReader In)
+		public ComplexNumber Read(TextReader In)
 		{
 			RealRart = double.Parse(In.ReadLine());
 			ImagPart = double.Parse(In.ReadLine());
 			return this;
 		}
 
-		private bool Equals(Complex other)
+		private bool Equals(ComplexNumber other)
 		{
 			return RealRart.Equals(other.RealRart) && ImagPart.Equals(other.ImagPart);
 		}
@@ -136,7 +123,7 @@ namespace ArithmeticOperation
 		{
 			if (ReferenceEquals(null, obj)) return false;
 			if (ReferenceEquals(this, obj)) return true;
-			return obj.GetType() == GetType() && Equals((Complex) obj);
+			return obj.GetType() == GetType() && Equals((ComplexNumber) obj);
 		}
 
 		public override int GetHashCode()
@@ -147,7 +134,7 @@ namespace ArithmeticOperation
 			}
 		}
 
-		public int CompareTo(Complex other)
+		public int CompareTo(ComplexNumber other)
 		{
 			if (ReferenceEquals(this, other)) return 0;
 			if (ReferenceEquals(null, other)) return 1;

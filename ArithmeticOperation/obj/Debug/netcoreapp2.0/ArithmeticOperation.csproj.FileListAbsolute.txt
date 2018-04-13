@@ -1,0 +1,10 @@
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\bin\Debug\netcoreapp2.0\ArithmeticOperation.deps.json
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\bin\Debug\netcoreapp2.0\ArithmeticOperation.runtimeconfig.json
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\bin\Debug\netcoreapp2.0\ArithmeticOperation.runtimeconfig.dev.json
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\bin\Debug\netcoreapp2.0\ArithmeticOperation.dll
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\bin\Debug\netcoreapp2.0\ArithmeticOperation.pdb
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\obj\Debug\netcoreapp2.0\ArithmeticOperation.csproj.CoreCompileInputs.cache
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\obj\Debug\netcoreapp2.0\ArithmeticOperation.AssemblyInfoInputs.cache
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\obj\Debug\netcoreapp2.0\ArithmeticOperation.AssemblyInfo.cs
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\obj\Debug\netcoreapp2.0\ArithmeticOperation.dll
+C:\Users\Roman\RiderProjects\ArithmeticOperation\ArithmeticOperation\obj\Debug\netcoreapp2.0\ArithmeticOperation.pdb

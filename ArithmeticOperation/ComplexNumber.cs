@@ -9,25 +9,25 @@ namespace ArithmeticOperation
 		public ComplexNumber ZERO => new ComplexNumber();
 		public ComplexNumber ONE => new ComplexNumber(1);
 
-		private double RealRart { get; set; }
-		private double ImagPart { get; set; }
+		public double RealPart { get; private set; }
+		public double ImagPart { get; private set; }
 
 		public ComplexNumber(double real, double imag = 0)
 		{
-			RealRart = real;
+			RealPart = real;
 			ImagPart = imag;
 		}
 
 		public ComplexNumber()
 		{
-			RealRart = 0;
+			RealPart = 0;
 			ImagPart = 0;
 		}
 
 		public void SetValue(double real, double imag)
 		{
-			this.RealRart = real;
-			this.ImagPart = imag;
+			RealPart = real;
+			ImagPart = imag;
 		}
 
 		public bool IsReal()
@@ -42,17 +42,17 @@ namespace ArithmeticOperation
 
 		public override string ToString()
 		{
-			return $"({RealRart} + {ImagPart}i)";
+			return $"({RealPart} + {ImagPart}i)";
 		}
 
 		public double Magnitude()
 		{
-			return Math.Sqrt(RealRart * RealRart + ImagPart * ImagPart);
+			return Math.Sqrt(RealPart * RealPart + ImagPart * ImagPart);
 		}
 
 		public double Argument()
 		{
-			return Math.Atan2(ImagPart, RealRart);
+			return Math.Atan2(ImagPart, RealPart);
 		}
 
 		public ComplexNumber getReal(double real)
@@ -62,18 +62,18 @@ namespace ArithmeticOperation
 
 		public ComplexNumber Add(ComplexNumber another)
 		{
-			return new ComplexNumber(RealRart + another.RealRart, ImagPart + another.ImagPart);
+			return new ComplexNumber(RealPart + another.RealPart, ImagPart + another.ImagPart);
 		}
 
 		public ComplexNumber Subtract(ComplexNumber another)
 		{
-			return new ComplexNumber(RealRart - another.RealRart, ImagPart - another.ImagPart);
+			return new ComplexNumber(RealPart - another.RealPart, ImagPart - another.ImagPart);
 		}
 
 		public ComplexNumber Reciprocal()
 		{
-			var scale = RealRart * RealRart + ImagPart * ImagPart;
-			RealRart /= scale;
+			var scale = RealPart * RealPart + ImagPart * ImagPart;
+			RealPart /= scale;
 			ImagPart /= scale;
 			return this;
 		}
@@ -85,21 +85,21 @@ namespace ArithmeticOperation
 
 		public ComplexNumber Conjugate()
 		{
-			this.RealRart = RealRart;
-			this.ImagPart = ImagPart * (-1);
+			RealPart = RealPart;
+			ImagPart = ImagPart * (-1);
 			return this;
 		}
 
 		public ComplexNumber Multiply(ComplexNumber other)
 		{
-			var real2 = RealRart * other.RealRart - ImagPart * other.ImagPart;
-			var imag2 = RealRart * other.ImagPart + ImagPart * other.RealRart;
+			var real2 = RealPart * other.RealPart - ImagPart * other.ImagPart;
+			var imag2 = RealPart * other.ImagPart + ImagPart * other.RealPart;
 			return new ComplexNumber(real2, imag2);
 		}
 
 		public object Clone()
 		{
-			return new ComplexNumber(RealRart, ImagPart);
+			return new ComplexNumber(RealPart, ImagPart);
 		}
 
 		public void Write(TextWriter Out)
@@ -109,14 +109,14 @@ namespace ArithmeticOperation
 
 		public ComplexNumber Read(TextReader In)
 		{
-			RealRart = double.Parse(In.ReadLine());
+			RealPart = double.Parse(In.ReadLine());
 			ImagPart = double.Parse(In.ReadLine());
 			return this;
 		}
 
 		private bool Equals(ComplexNumber other)
 		{
-			return RealRart.Equals(other.RealRart) && ImagPart.Equals(other.ImagPart);
+			return RealPart.Equals(other.RealPart) && ImagPart.Equals(other.ImagPart);
 		}
 
 		public override bool Equals(object obj)
@@ -130,7 +130,7 @@ namespace ArithmeticOperation
 		{
 			unchecked
 			{
-				return (RealRart.GetHashCode() * 397) ^ ImagPart.GetHashCode();
+				return (RealPart.GetHashCode() * 397) ^ ImagPart.GetHashCode();
 			}
 		}
 
@@ -138,7 +138,7 @@ namespace ArithmeticOperation
 		{
 			if (ReferenceEquals(this, other)) return 0;
 			if (ReferenceEquals(null, other)) return 1;
-			var realRartComparison = RealRart.CompareTo(other.RealRart);
+			var realRartComparison = RealPart.CompareTo(other.RealPart);
 			return realRartComparison != 0 ? realRartComparison : ImagPart.CompareTo(other.ImagPart);
 		}
 	}

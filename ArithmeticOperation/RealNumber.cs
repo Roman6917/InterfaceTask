@@ -9,7 +9,7 @@ namespace ArithmeticOperation
 		public RealNumber ONE => new RealNumber(1);
 
 		
-		private double Real { get; set; }
+		public double Real { get; private set; }
 
 		public RealNumber()
 		{
@@ -18,7 +18,7 @@ namespace ArithmeticOperation
 		
 		public RealNumber(double real)
 		{
-			this.Real = real;
+			Real = real;
 		}
 		
 		public object Clone()
@@ -40,7 +40,7 @@ namespace ArithmeticOperation
 		{
 			if (ReferenceEquals(null, obj)) return false;
 			if (ReferenceEquals(this, obj)) return true;
-			return obj.GetType() == this.GetType() && Equals((RealNumber) obj);
+			return obj.GetType() == GetType() && Equals((RealNumber) obj);
 		}
 
 		public override int GetHashCode()
@@ -90,7 +90,7 @@ namespace ArithmeticOperation
 
 		public RealNumber Divide(RealNumber other)
 		{
-			var num = 0.0;
+			double num;
 			if (Math.Abs(other.Real) > 0.00000001)
 			{
 				num = Real / other.Real;

@@ -17,7 +17,7 @@ namespace ArithmeticOperation
 			{
 				new RealNumber(1),
 				new RealNumber(2),
-				new RealNumber(1),
+				new RealNumber(3),
 			};
 			
 			Task.Mult(real).Write(Console.Out);

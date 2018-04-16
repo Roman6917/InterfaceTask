@@ -10,7 +10,7 @@
 |:-:|:-------------:|:-------------:|:--------------:|:---------:|
 |1  | Maks          | Chytailo      | [ormaks][1]    |maks.chytailo@gmail.com|
 |2  | Orest         | Hopiak        | [OHopiak][2]   |oresthopiak@gmail.com|
-|3  | Roman         | Korduk        | [Roman6917][3] ||
+|3  | Roman         | Korduk        | [Roman6917][3] |kordukroman@gmail.com|
 
 
 ### [List of grades!][4]
